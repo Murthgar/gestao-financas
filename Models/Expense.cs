@@ -11,7 +11,6 @@ namespace GestãoFinancas.Models
         public string Description { get; set; }          // Descrição da despesa (ex: "Conta de luz")
         public decimal Amount { get; set; }              // Valor da despesa
         public DateTime Date { get; set; }               // Data da despesa ou vencimento
-        public string Category { get; set; }             // Categoria (ex: "Alimentação", "Transporte")
         public bool IsPaid { get; set; }                 // Indica se a despesa já foi paga
 
         // Regra de negócio: verifica se a despesa está vencida
@@ -19,6 +18,8 @@ namespace GestãoFinancas.Models
         {
             return !IsPaid && Date < DateTime.Today;
         }
+        public int CategoryId { get; set; } // Foreign key for Category
+        public Category Category { get; set; } // Navigation property for Category
 
     }
 }
