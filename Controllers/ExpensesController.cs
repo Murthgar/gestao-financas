@@ -4,6 +4,8 @@ using GestãoFinancas.Models;
 using GestãoFinancas.Data;
 using GestãoFinancas.Dtos;
 using AutoMapper;
+using CsvHelper;
+using System.Globalization;
 
 namespace GestãoFinancas.Controllers
 {
@@ -21,7 +23,6 @@ namespace GestãoFinancas.Controllers
         }
 
         // POST: api/expenses
-        [HttpPost]
         [HttpPost]
         public IActionResult Create([FromBody] ExpenseDto dto)
         {
@@ -72,6 +73,42 @@ namespace GestãoFinancas.Controllers
 
             // Resposta agora inclui recorrências geradas
             return CreatedAtAction(nameof(GetById), new { id = expense.Id }, responseDto);
+        }
+
+        [HttpPost("import-expenses")]
+        public async Task<IActionResult> ImportExpenses(IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+                return BadRequest("Arquivo inválido.");
+
+            using var reader = new StreamReader(file.OpenReadStream());
+            using var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
+
+            var records = csv.GetRecords<ExpenseCsvModel>().ToList();
+
+            foreach (var record in records)
+            {
+                var category = await _context.Categories
+                    .FirstOrDefaultAsync(c => c.Name == record.CategoryName)
+                    ?? new Category { Name = record.CategoryName };
+
+                var expense = new Expense
+                {
+                    Description = record.Description,
+                    Amount = record.Amount,
+                    Date = record.Date,
+                    IsPaid = record.IsPaid,
+                    Category = category,
+                    IsRecurring = record.IsRecurring,
+                    RecurrenceType = record.RecurrenceType,
+                    EndRecurrence = record.EndRecurrence
+                };
+
+                _context.Expenses.Add(expense);
+            }
+
+            await _context.SaveChangesAsync();
+            return Ok("Importação concluída.");
         }
 
 
