@@ -260,3 +260,4 @@ c:\Users\Murthgar\GestãoFinancas\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagge
 c:\Users\Murthgar\GestãoFinancas\obj\Debug\net9.0\GestãoFinancas.MvcApplicationPartsAssemblyInfo.cs
 c:\Users\Murthgar\GestãoFinancas\bin\Debug\net9.0\AutoMapper.dll
 c:\Users\Murthgar\GestãoFinancas\bin\Debug\net9.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+c:\Users\Murthgar\GestãoFinancas\bin\Debug\net9.0\CsvHelper.dll
