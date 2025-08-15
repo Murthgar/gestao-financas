@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace GestãoFinancas.Models
 {
-    public class ExpenseCsvModel
+    public class ExpenseCsv
     {
         public string Description { get; set; }
         public decimal Amount { get; set; }

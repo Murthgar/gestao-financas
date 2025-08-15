@@ -84,7 +84,7 @@ namespace GestãoFinancas.Controllers
             using var reader = new StreamReader(file.OpenReadStream());
             using var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
 
-            var records = csv.GetRecords<ExpenseCsvModel>().ToList();
+            var records = csv.GetRecords<ExpenseCsv>().ToList();
 
             foreach (var record in records)
             {
