@@ -76,7 +76,3 @@ dotnet run
 ## 📄 Licença
 
 Este projeto está sob a licença [MIT](LICENSE).
-
-## ✨ Contribuição
-
-Contribuições são bem-vindas! Por favor, sinta-se à vontade para enviar um Pull Request.
