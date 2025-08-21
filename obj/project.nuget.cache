@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7aevmmiK0Mg=",
+  "dgSpecHash": "20ELLWF7GxU=",
   "success": true,
-  "projectFilePath": "C:\\Users\\PC\\Documents\\Francisco\\Dev\\C#\\3. Gestao Financas\\gestao-financas\\GestãoFinancas.csproj",
+  "projectFilePath": "C:\\Users\\PC\\Documents\\Francisco\\Dev\\C#\\3. Gestao Financas\\gestao_financas\\GestãoFinancas.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PC\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
